@@ -1,36 +1,45 @@
-.container-fluid{
-    
+.container-fluid {
+
 }
+
 /* ===============================HEADER============================== */
-.color-bg-header{
+.color-bg-header {
     background-color: rgb(37, 201, 223);
     border: 1px solid;
 }
-.Img-header-logo{
-    width:50px;
+
+.Img-header-logo {
+    width: 50px;
 }
-.logo-header{
- font-size: 30px;
- font-weight: 800;
+
+.logo-header {
+    font-size: 30px;
+    font-weight: 800;
 }
-.Infoi-right{
+
+.Infoi-right {
     float: right;
     font-size: 30px;
     padding-right: 15px;
 }
+
 /* ==============================BLock-2============================ */
-.block-2{
-    
-    height:calc(100vh - 59px);
+.block-2 {
+
+    height: calc(100vh - 59px);
     background-color: rgb(207, 207, 207);
 }
-.col-1-block2 , .col-2-block2{
-border: 1px solid black;
+
+.col-1-block2, .col-2-block2 {
+    border: 1px solid black;
 }
-.btn{
+
+.btn {
     margin-top: 200px;
+    padding: 5px;
     margin-left: 70px;
 }
-.col-2-block2{
+
+.col-2-block2 {
     text-align: end;
 }
