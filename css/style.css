@@ -21,7 +21,7 @@
 /* ==============================BLock-2============================ */
 .block-2{
     
-    height: 700px;
+    height:calc(100vh - 59px);
     background-color: rgb(207, 207, 207);
 }
 .col-1-block2 , .col-2-block2{
