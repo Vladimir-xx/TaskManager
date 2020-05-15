@@ -34,12 +34,20 @@
     border: 1px solid black;
 }
 
-.btn {
-    margin-top: 200px;
-    padding: 5px;
-    margin-left: 70px;
-}
 
 .col-2-block2 {
-    text-align: end;
+}
+.btnProject{
+    width: 240px;
+    margin: 43px;
+    margin-top: 260px;
+}
+
+.project1{
+    margin: 131px;
+    font-size: 20px;
+    color: #00ff06;
+}
+.dropMenu{
+    margin-top: 30px;
 }
