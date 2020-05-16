@@ -1,36 +1,67 @@
-.container-fluid{
-    
+.container-fluid {
+
 }
+
 /* ===============================HEADER============================== */
-.color-bg-header{
+.color-bg-header {
     background-color: rgb(37, 201, 223);
     border: 1px solid;
 }
-.Img-header-logo{
-    width:50px;
+
+.Img-header-logo {
+    width: 50px;
 }
-.logo-header{
- font-size: 30px;
- font-weight: 800;
+
+.logo-header {
+    font-size: 30px;
+    font-weight: 800;
 }
-.Infoi-right{
+
+.Infoi-right {
     float: right;
     font-size: 30px;
     padding-right: 15px;
 }
+
 /* ==============================BLock-2============================ */
-.block-2{
-    
-    height:calc(100vh - 59px);
+.block-2 {
+
+    height: calc(100vh - 59px);
     background-color: rgb(207, 207, 207);
 }
-.col-1-block2 , .col-2-block2{
-border: 1px solid black;
+/*================================col-1-block2========================*/
+.col-1-block2, .col-2-block2 {
+    border: 1px solid black;
 }
-.btn{
-    margin-top: 200px;
-    margin-left: 70px;
+.btnProject{
+    margin: 43px;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 27px;
 }
-.col-2-block2{
-    text-align: end;
+ .addplus{
+     background-color: blue;
+     font-size: 25px;
+     border-radius: 50px;
+     color: #00ff0d;
+ }
+.project1{
+    margin: 131px;
+    font-size: 20px;
+    color: #00ff06;
+}
+.dropMenu{
+    margin-top: 30px;
+}
+
+/*================================col-2-block2========================*/
+
+.button-11{
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50px;
+    font-family: fantasy;
+    font-size: 40px;
+    background-color: red;
 }
