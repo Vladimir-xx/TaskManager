@@ -41,9 +41,13 @@
 }
  .addplus{
      background-color: blue;
-     font-size: 25px;
+     font-size: 24px;
      border-radius: 50px;
      color: #00ff0d;
+     width: 38px;
+     height: 38px;
+     display: inline-block;
+
  }
 .project1{
     margin: 131px;
@@ -62,6 +66,8 @@
     bottom: 15px;
     border-radius: 50px;
     font-family: fantasy;
-    font-size: 40px;
+    font-size: 31px;
     background-color: red;
+    width: 50px;
+    height: 50px;
 }
