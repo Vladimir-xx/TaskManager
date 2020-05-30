@@ -4,31 +4,29 @@
 .header{
     border: 1px solid black;
     text-align: center;
-    border-radius:4px;
+    border-radius: 4px;
     padding-bottom: 10px;
-    font-size: 25px;
+    font-size: 22px;
     background-color: rgb(37, 201, 223);
     font-weight: 800;
-    letter-spacing: 5px;
+    letter-spacing: 1px;
     margin: 44px 0 0 16.666667%;
 
 
 
 }
 .logo-radius {
-    border: 2px solid;
-    color: black;
     display: inline-block;
-    border-radius: 50px;
-    width: 65px;
-    height: 65px;
-    margin: 3px 5px;
+   
 }
-.Img-header-logo {
-    width: 50px;
-    padding: 8px 5px;
-    margin: 2px 5px;
+.john{
+    text-align: center;
 }
+
+.taskManager{
+    text-align: start;
+}
+
 
 /*========================================TITLE===========================*/
 
