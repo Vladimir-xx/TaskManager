@@ -30,16 +30,27 @@
                 <form>
                     <fieldset class="account-info">
                         <label>
-                            Имя пользователя
-                            <input class="nameInput" type="text" name="username">
+
+                            <input class="nameInput" type="text" name="username" placeholder="Имя пользователя"
+                                required>
                         </label>
                         <label>
-                            Пароль
-                            <input class="passworInput" type="password" name="password">
+
+                            <input type="text" id="email" placeholder="Ваш email" required pattern="\S+@[a-z]+.[a-z]+">
+                        </label>
+                        <label>
+
+                            <input class="passworInput" type="password" name="password" min="3" max="12"
+                                placeholder="Пароль" required>
+                        </label>
+                        <label>
+
+                            <input class="passworInput" type="password" name="password" min="3" max="12"
+                                placeholder=" Подтверждение пароля" required>
                         </label>
                     </fieldset>
                     <fieldset class="account-action">
-                        <input class="btn" name="submit" value="Войти">
+                        <input type="submit" class="btn" name="submit" value="Войти">
 
                     </fieldset>
                 </form>
