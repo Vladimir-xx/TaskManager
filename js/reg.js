@@ -1,32 +1,36 @@
 // ===========================================JSONInfo============================================
 checkAccess();
 
-
-let form = document.addEventListener('submit', info);
-
-function info() {
-
+function info(e) {
+    e.preventDefault();
     let registr = {};
     registr.name = document.querySelector('.nameInput').value;
-    registr.password1 = document.querySelector('.passworInput1').value;
-    registr.password2 = document.querySelector('.passworInput2').value;
-
+    registr.password = document.querySelector('.password').value;
     let jsonStr = JSON.stringify(registr);
     localStorage.setItem('credentials', jsonStr);
-    // let returnObj = JSON.parse(localStorage.getItem('credentials'));
+    window.location = 'index.html';
+}
+
+// window.onload = function () {
+//     document.querySelector(".passworInput1").onchange = validatePassword;
+//     document.querySelector(".passworInput2").onchange = validatePassword;
+// };
+
+function init() {
+    const form = document.querySelector('form');
+    form.onsubmit = info;
+    document.querySelector('.passwordConfirm').onchange = validatePassword;
 
 }
-window.onload = function () {
-    document.querySelector(".passworInput1").onchange = validatePassword;
-    document.querySelector(".passworInput2").onchange = validatePassword;
-}
+
 function validatePassword() {
-    var pass2 = document.querySelector(".passworInput2").value;
-    var pass1 = document.querySelector(".passworInput1").value;
-    if (pass1 != pass2) {
-        document.querySelector(".passworInput2").setCustomValidity("Пароль не верный");
+    let conformPassElement = document.querySelector('.passwordConfirm');
+    let passConfirm = conformPassElement.value;
+    let pass = document.querySelector('.password').value;
+    if (pass !== passConfirm) {
+        conformPassElement.setCustomValidity('Пароль не верный');
     } else {
-        document.querySelector(".passworInput2").setCustomValidity('');
+        conformPassElement.setCustomValidity('');
     }
 }
 
@@ -34,6 +38,7 @@ function checkAccess() {
     if (isAuthenticated()) {
         window.location = 'index.html';
     }
+    init();
 }
 
 function isAuthenticated() {

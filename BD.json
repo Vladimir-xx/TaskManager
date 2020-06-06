@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "login": "wowa",
+    "password": "wowa1230",
+    "projects": [
+      {
+        "id": 1,
+        "name": "Project1",
+        "tasks": [
+          {
+            "id": 1,
+            "name": "task1",
+            "description": "bla bla bla"
+          }
+        ]
+      }
+    ]
+  }
+]

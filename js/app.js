@@ -1,27 +1,39 @@
-
 // ==========================Registration==============================
 
 checkAccess();
+init();
 
-let logo = document.querySelector('.logo-header');
-let pars = JSON.parse(localStorage.getItem("credentials"));
+function init() {
+    let logo = document.querySelector('.logo-header');
+    let pars = JSON.parse(localStorage.getItem('credentials'));
+    logo.innerHTML = pars.name;
 
-logo.innerHTML = pars.name;
+    document.querySelector('.exit').onclick = () => {
+        localStorage.removeItem('credentials');
+        checkAccess();
+    };
+
+    // getData();
+}
 
 function checkAccess() {
     if (!isAuthenticated()) {
         window.location = 'registration.html';
     }
+
 }
 
 function isAuthenticated() {
     const credentials = JSON.parse(localStorage.getItem('credentials'));
-    return !!credentials;  // два восклицательных знака преобразуют что либо в boolean , т.е. если есть что то в credentials то будет true, нету то false
+    return !!credentials;
 }
 
-let buttonIMG = document.querySelector('.Img-header-logo').onclick = () => {
-    localStorage.removeItem("credentials");
-    checkAccess();
-
-};
+// через fetch
+function getData() {
+    fetch('BD.json').then(response => {
+        return response.json();
+    }).then((data) => {
+        console.log(data);
+    });
+}
 
