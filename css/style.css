@@ -99,3 +99,33 @@
 .logo-radius:hover{
     background-color: crimson;
 }
+
+/* =========================Task-Windows======================= */
+
+.conteinerTask1{
+
+    background-color: #343a40!important;
+
+    border: 2px solid black;
+}
+.conteinerTask2{
+    height: 130px;
+    background-color: rgb(232, 239, 243);
+    border: 2px solid black;
+    overflow-x:hidden;
+}
+.nameTask{
+    display: inline;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;;
+}
+.Capa_1{
+    margin: 0px 6px 0px 0px;
+}
+.textTask{
+    padding: 20px 0 0 0px;
+    font-size: 20px;
+    
+}
