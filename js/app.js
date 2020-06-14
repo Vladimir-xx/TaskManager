@@ -2,6 +2,11 @@
 
 checkAccess();
 init();
+getData();
+
+
+const credentialsInit = JSON.parse(localStorage.getItem('credentials'));
+
 
 function init() {
     let logo = document.querySelector('.logo-header');
@@ -33,7 +38,23 @@ function getData() {
     fetch('BD.json').then(response => {
         return response.json();
     }).then((data) => {
-        console.log(data);
+        for(let key in data){
+
+            let userTask  = data[key];
+
+            name();
+            function name(){
+                if(userTask.login == credentialsInit.name ){
+                    console.log('login valid ');
+                    document.querySelector('.project1').innerHTML = userTask.projects[0].name;
+                    document.querySelector('.nameTask').innerHTML = userTask.projects[0].tasks[0].name;
+                    document.querySelector('.textTask').innerHTML = userTask.projects[0].tasks[0].description;
+
+                }
+            }
+
+        }
+
     });
 }
 
