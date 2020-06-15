@@ -38,13 +38,13 @@ function getData() {
     fetch('BD.json').then(response => {
         return response.json();
     }).then((data) => {
-        for(let key in data){
+        for (let key in data) {
 
-            let userTask  = data[key];
+            let userTask = data[key];
 
             name();
-            function name(){
-                if(userTask.login == credentialsInit.name ){
+            function name() {
+                if (userTask.login == credentialsInit.name) {
                     console.log('login valid ');
                     document.querySelector('.project2').innerHTML = userTask.projects[0].name;
                     document.querySelector('.nameTask').innerHTML = userTask.projects[0].tasks[0].name;
@@ -59,23 +59,36 @@ function getData() {
 
 }
 //===============================================Add-Project================================================
-let addProject  = document.querySelector('.addplus').onclick = function add() {
-
-            let project = document.querySelector('.projects-container');
-            project.innerHTML += '  <div class="projects-container">\n' +
-                '\n' +
-                '                    <div class="dropdown dropMenu">\n' +
-                '                        <a href="#" class="project2" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"\n' +
-                '                           aria-expanded="false">Project</a>\n' +
-                '                        </a>\n' +
-                '\n' +
-                '                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">\n' +
-                '                            <a class="dropdown-item" href="#">Add Task</a>\n' +
-                '                            <a class="dropdown-item" href="#">Delete Project</a>\n' +
-                '\n' +
-                '                        </div>\n' +
-                '                    </div>'
+let addProject = new Set();
+let numb = 1;
+let project = document.querySelector('.addplus').onclick = function add() {
+    set();
+    function set() {
+        addProject.add(`project ${numb++}`);
 
 
+        let name;
+        for (let key of addProject) {
+            name = key;
+        }
+
+        document.querySelector('.projects-container').innerHTML += '<div class="dropdown dropMenu">\n' +
+            '                        <a href="#" class="project2" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"\n' +
+            '                           aria-expanded="false" >' + `${name}` + '  </a>\n' +
+            '                        </a>\n' +
+            '\n' +
+            '                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">\n' +
+            '                            <a class="dropdown-item" href="#">Add Task</a>\n' +
+            '                            <a class="dropdown-item" href="#">Delete Project</a>\n' +
+            '\n' +
+            '                        </div>\n' +
+            '                    </div>\n';
+        console.log(name);
+    }
+
+
+
+
+    
 }
 
