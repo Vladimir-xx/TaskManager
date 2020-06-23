@@ -5,6 +5,7 @@ init();
 
 const credentialsInit = JSON.parse(localStorage.getItem('credentials'));
 let user;
+
 function init() {
     let logo = document.querySelector('.logo-header');
     let pars = JSON.parse(localStorage.getItem('credentials'));
@@ -39,12 +40,22 @@ function getData() {
         user = findUser(users);
 
         mapProjects(user.projects);
-        taskProject(user.projects);
-            console.log(user.projects)
+
+        $('.projects-container').on('click', '.project2', function (event) {
+
+            renderTasks(user.projects, event.target.dataset.idProject);
+
+        });
+
+
+        console.log(user.projects)
 
     });
 
 }
+
+
+
 //====================================================Validation-Project$$login=======================================
 function findUser(users) {
     return users.find(el => el.login === credentialsInit.name);
@@ -54,50 +65,52 @@ function findUser(users) {
 function mapProjects(projects) {
     const projectsContainer = document.querySelector('.projects-container');
     projectsContainer.innerHTML = '';
-    projects.forEach(function (project ,index, pArr) {
-        
+    projects.forEach(function (project, index, pArr) {
+
 
         let menu = document.createElement('div');
-        menu.innerHTML = ` <div class="dropdown dropMenu">
+        menu.innerHTML = ` <div class="dropMenu">
                         <a href="#"
                          data-id-project="${project.id}"
-                         class="project2" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false" >  ${project.name}   </a>
+                         class="project2"  
+                            >  ${project.name}   </a>
                         </a>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"  >
-                            <a class="dropdown-item" href="#">Add Task</a>
-                            <a class="dropdown-item" href="#">Delete Project</a>
+                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLink"  >-->
+                            <!--<a class="dropdown-item" href="#">Add Task</a>-->
+                            <!--<a class="dropdown-item" href="#">Delete Project</a>-->
 
-                        </div>
+                        <!--</div>-->
                     </div>`;
         projectsContainer.appendChild(menu);
-
 
 
     })
 }
 
 
-
 //===============================================Maping-Task-add================================================
-    function taskProject(projects) {
 
-        const projectsContainer = document.querySelector('.task-add');
+function renderTasks(projects, idProject) {
 
-       $('.project2').on('click ',function (event) {
-console.log(event.target.dataset.idProject)
+    console.log(projects, idProject)
 
-           const task = projects.find(item => item.id == event.target.dataset.idProject )
+    const tasksContainer = document.querySelector('.task-add');
 
-console.log(task.tasks[0].description)
+    const project = projects.find(item => +item.id === +idProject);
 
-            let menu = document.createElement('div');
 
-            menu.innerHTML = `<div class="task-box">
+    console.log('project', project)
+
+    tasksContainer.innerHTML = '';
+
+    project.tasks.forEach((task, i, array) => {
+
+        let newTask = document.createElement('div');
+        newTask.innerHTML = `<div class="task-box">
             <div class="row justify-content-center ">
             <div class="col-10 conteinerTask1 row justify-content-between">
-            <p class="nameTask"> ${task.tasks[0].name} </p>
+            <p class="nameTask"> ${task.name}   номер таски: ${i}</p>
         <div class="navigationTask ">
             <a href="#">
             <svg class="Capa_1" enable-background="new 0 0 512.002 512.002" height="20px"
@@ -161,33 +174,24 @@ console.log(task.tasks[0].description)
             </div>
             <div class="row justify-content-center">
             <div class="col-10 conteinerTask2  ">
-            <p class="textTask "> ${task.tasks[0].description}</p>
+            <p class="textTask "> ${task.description}</p>
         </div>
         </div>`;
-            projectsContainer.appendChild(menu);
 
-       });
+        tasksContainer.appendChild(newTask);
+    });
 
-    };
+};
 
 //===============================================Add-Project================================================
 
-$('.add-project-btn').on( 'click',function () {
+$('.add-project-btn').on('click', function () {
     addProject();
-})  ;
+});
 
 
 function addProject() {
-
     const name = document.querySelector('#project-name').value;
-
-    // let newProject = {
-    //     id: 123423,
-    //     name: name,
-    //     tasks: []
-    // };
-    //
-
     //========================================RandomID=======================================================
     const id = getRandomId();
     user.projects.push(new Project(id, name));
@@ -195,13 +199,12 @@ function addProject() {
     mapProjects(user.projects);
 
     $('#add-project').modal('hide');
-
-    document.querySelector()
 }
 
 function getRandomId() {
     return new Date().getTime();
 }
+
 
 //=============================================class-Project-Task-OOP=========================================
 class Project {
