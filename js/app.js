@@ -5,7 +5,6 @@ init();
 
 const credentialsInit = JSON.parse(localStorage.getItem('credentials'));
 let user;
-let task;
 function init() {
     let logo = document.querySelector('.logo-header');
     let pars = JSON.parse(localStorage.getItem('credentials'));
@@ -41,7 +40,7 @@ function getData() {
 
         mapProjects(user.projects);
         taskProject(user.projects);
-
+            console.log(user.projects)
 
     });
 
@@ -87,15 +86,18 @@ function mapProjects(projects) {
         const projectsContainer = document.querySelector('.task-add');
 
        $('.project2').on('click ',function (event) {
+console.log(event.target.dataset.idProject)
 
-           const taskinfo =projects.find(taskInfo => taskInfo.name === event.target.innerText);
+           const task = projects.find(item => item.id == event.target.dataset.idProject )
+
+console.log(task.tasks[0].description)
 
             let menu = document.createElement('div');
 
             menu.innerHTML = `<div class="task-box">
             <div class="row justify-content-center ">
             <div class="col-10 conteinerTask1 row justify-content-between">
-            <p class="nameTask"> ${taskinfo.name} </p>
+            <p class="nameTask"> ${task.tasks[0].name} </p>
         <div class="navigationTask ">
             <a href="#">
             <svg class="Capa_1" enable-background="new 0 0 512.002 512.002" height="20px"
@@ -159,7 +161,7 @@ function mapProjects(projects) {
             </div>
             <div class="row justify-content-center">
             <div class="col-10 conteinerTask2  ">
-            <p class="textTask "> ${taskinfo.tasks[0].description}</p>
+            <p class="textTask "> ${task.tasks[0].description}</p>
         </div>
         </div>`;
             projectsContainer.appendChild(menu);
@@ -170,7 +172,9 @@ function mapProjects(projects) {
 
 //===============================================Add-Project================================================
 
-document.querySelector('.add-project-btn').onclick = addProject;
+$('.add-project-btn').on( 'click',function () {
+    addProject();
+})  ;
 
 
 function addProject() {
@@ -191,6 +195,8 @@ function addProject() {
     mapProjects(user.projects);
 
     $('#add-project').modal('hide');
+
+    document.querySelector()
 }
 
 function getRandomId() {
