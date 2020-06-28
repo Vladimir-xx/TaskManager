@@ -43,12 +43,13 @@ function getData() {
 
         //==============================Rmove-classe-project-======================
         removeClass();
-        function removeClass(){
-        let removeClass = document.querySelectorAll('.project2');
 
-        removeClass.forEach(function (item,index) {
-            removeClass[index].classList.remove('pressEfect');
-        });
+        function removeClass() {
+            let removeClass = document.querySelectorAll('.project2');
+
+            removeClass.forEach(function (item, index) {
+                removeClass[index].classList.remove('pressEfect');
+            });
 
         };
         $('.projects-container').on('click', '.project2', function (event) {
@@ -59,7 +60,8 @@ function getData() {
             renderTasks(user.projects, event.target.dataset.idProject);
 
         });
-      });
+
+    });
 }
 
 //====================================================Validation-Project$$login=======================================
@@ -83,7 +85,7 @@ function mapProjects(projects) {
                             </a>
                             <div class="navigationProject ">
                             <a href="#" class="plusenavi">+</a>
-            <a href="#"  data-toggle="modal" data-target="#pencil-editing">
+            <a href="#" class="edit-project-btn" data-id-project="${project.id}">
             <svg class="Capa_1" enable-background="new 0 0 512.002 512.002" height="20px"
         viewBox="0 0 512.002 512.002" width="20px" xmlns="http://www.w3.org/2000/svg">
             <g>
@@ -146,16 +148,19 @@ function mapProjects(projects) {
 
                     </div> `;
         projectsContainer.appendChild(menu);
-         
+
     });
 
+    $('.edit-project-btn').on('click', function (event) {
+        const id = this.getAttribute('data-id-project');
+        openEditProject(+id);
+    });
 }
 
 
 //===============================================Maping-Task-add================================================
 
 function renderTasks(projects, idProject) {
-
 
 
     const tasksContainer = document.querySelector('.task-add');
@@ -243,7 +248,6 @@ function renderTasks(projects, idProject) {
     });
 
 
-
 };
 
 //===============================================Add-Project================================================
@@ -270,7 +274,23 @@ function getRandomId() {
 
 //===========================================Modal-Project-edit===============================================
 
+function openEditProject(idProject) {
+    const modalEdit = document.querySelector('#project-edit');
+    $('#project-edit').modal('show');
 
+    // находим проект по idProject
+    const project = user.projects.find(el => +el.id === +idProject);
+
+    //подставляем старое имя
+    modalEdit.querySelector('#edit-project-name').value = project.name;
+
+    // сохраниеие
+    $('.edit-project-btn2').click(function () {
+
+    });
+
+
+}
 
 
 //=============================================class-Project-Task-OOP=========================================
