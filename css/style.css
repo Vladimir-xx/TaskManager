@@ -76,10 +76,32 @@
      border: 2px solid;
      text-decoration: none;
  }
-.project1{
-    font-size: 20px;
+.project2{
+    font-size: 30px;
     color: #70c9d4;
+    display: block;
+    padding: 1px;
+    margin: 10px;
+
 }
+.navigationProject{
+    display: none;
+
+}
+ .dropMenu:hover .navigationProject{
+     display: inline;
+
+ }
+ .plusenavi{
+     font-size: 35px;
+     color: red;
+ }
+     .pressEfect{
+         background-color: rgba(70, 160, 222, 0.27);
+         border: solid 2px red;
+         border-radius: 8px;
+     }
+
 
 /*================================col-2-block2========================*/
 
